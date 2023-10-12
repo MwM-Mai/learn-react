@@ -1,0 +1,19 @@
+.nav-bar {
+  display: flex;
+}
+
+.nav-left, .nav-right {
+  width: 70px;
+  border: 1px solid red;  
+}
+
+.nav-center {
+  flex: 1;
+  border: 1px solid pink;
+}
+
+.nav-left, .nav-right, .nav-center {
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+}

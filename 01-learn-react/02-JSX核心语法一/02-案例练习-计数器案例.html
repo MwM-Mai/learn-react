@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <!-- 1. 引入依赖 -->
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- 2. 编写 react 代码 -->
+
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super();
+
+          this.state = {
+            total: 0,
+          };
+        }
+
+        render() {
+          return (
+            <div>
+              <h2>当前技术:{this.state.total}</h2>
+              <button onClick={this.sub.bind(this)}>-1</button>
+              <button onClick={this.add}>+1</button>
+            </div>
+          );
+        }
+
+        add = () => {
+          this.setState({
+            total: this.state.total + 1,
+          });
+        };
+
+        sub() {
+          this.setState({
+            total: this.state.total - 1,
+          });
+        }
+      }
+
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+  </body>
+</html>

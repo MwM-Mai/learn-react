@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <div>Header</div> -->
+
+    <div id="app">app</div>
+
+    <!-- <div>Footer</div> -->
+
+    <!-- 添加react依赖 -->
+    <!-- 加载 React。-->
+    <!-- 注意: 部署时，将 "development.js" 替换为 "production.min.js"。-->
+    <!-- crossorigin 的作用是将远程的js脚本的错误在本地浏览器显示 -->
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- 开始开发 -->
+    <!-- 注意事项: 使用jsx, 并且希望 script 中的jsx的代码被解析,必须在 script 标签中添加一个属性 -->
+    <!-- jsx特点: 多个标签最外层(根)只能由一个标签 -->
+    <script type="text/babel">
+      // 1. 渲染 Hello World
+
+      let message = "Hello World";
+
+      function btnClick() {
+        console.log("按钮发生点击");
+        message = "Hello React";
+        render();
+      }
+
+      // ReactDOM.rander(渲染的内容(jsx代码), 挂载的对象)
+      function render() {
+        ReactDOM.render(
+          <div>
+            <h2>{message}</h2>
+            <button onClick={btnClick}>改变文本</button>
+          </div>,
+          document.getElementById("app")
+        );
+      }
+
+      render();
+    </script>
+  </body>
+</html>

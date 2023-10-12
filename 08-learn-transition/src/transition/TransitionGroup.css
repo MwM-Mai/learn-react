@@ -1,0 +1,37 @@
+/* 进入 */
+/* 开始动画前 */
+.item-enter, .item-appear {
+  opacity: 0;
+  transform: scale(0.6); /* scale 大小 */
+}
+
+/* 执行动画时 */
+.item-enter-active, .item-appear-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 500ms ; /* 执行动画(给谁执行可选择属性名(opacity...) 或者 all)  */
+}
+
+/* 结束动画后 */
+.item-enter-done, .item-appear-done {
+  color: red;
+}
+
+/* 退出 */
+/* 开始动画前 */
+.item-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 执行动画时 */
+.item-exit-active {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: all 500ms ; /* 执行动画(给谁执行) */
+}
+
+/* 结束动画后 */
+.item-exit-done {
+  opacity: 0;
+}

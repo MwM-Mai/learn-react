@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <!-- 添加react依赖 -->
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- 开始开发 -->
+    <script type="text/babel">
+      // 封装 App 组件
+      class App extends React.Component {
+        constructor() {
+          super();
+          // this.message = "Hello Wrold"; 依赖数据渲染更新 DOM 必须写在 this.state 对象里面
+          this.state = {
+            message: "Hello Wrold",
+          };
+        }
+
+        render() {
+          return (
+            <div>
+              <h2>{this.state.message}</h2>
+              <button onClick={this.btnClick.bind(this)}>改变文本</button>
+            </div>
+          );
+        }
+
+        btnClick() {
+          console.log("按钮发生了点击");
+          // this.state.message = "Hello React";  无法更新DOM 必须使用 this.setState() 和小程序很像
+          this.setState({
+            message: "Hello React",
+          });
+        }
+      }
+
+      // 渲染组件
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+  </body>
+</html>

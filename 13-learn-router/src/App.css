@@ -1,0 +1,10 @@
+.activeClassName {
+  color: pink;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.about-isActive {
+  color: yellow;
+  text-decoration: none;
+}

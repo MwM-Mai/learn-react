@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // generator 生成器
+
+      // 1.普通函数
+      // function foo() {
+      //   console.log("foo");
+      // }
+
+      // foo();
+
+      // 生成器函数的定义
+      function* foo() {
+        // 通过 yield 返回结果
+
+        console.log("111");
+        yield "Hello";
+        console.log("222");
+        yield "World";
+        console.log("333");
+        yield "Coderwhy";
+        console.log("444");
+      }
+
+      // 生成器的返回结果是 iterator(迭代器)
+      const result = foo();
+
+      // 使用迭代器
+      // 调用一次 next 消耗一次 迭代器
+      const res1 = result.next();
+      console.log(res1);
+      const res2 = result.next();
+      console.log(res2);
+      const res3 = result.next();
+      console.log(res3);
+      const res4 = result.next();
+      console.log(res4);
+
+      // console.log(result);
+      console.log("----------------------------------------");
+
+      // 练习 定义一个生成器函数 依次可以生成1-10的数字
+      function* generatorNumber() {
+        for (let i = 1; i <= 10; i++) {
+          yield i;
+        }
+      }
+
+      const numIt = generatorNumber();
+      console.log(numIt.next());
+
+      console.log("----------------------------------------");
+
+      // generator结合Promise一起使用
+      function* bar() {
+        const result = yield new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve("Hello Generator");
+          }, 3000);
+        });
+
+        console.log(result);
+      }
+
+      const it = bar();
+      it.next().value.then((res) => {
+        it.next(res);
+      });
+    </script>
+  </body>
+</html>

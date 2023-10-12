@@ -1,0 +1,37 @@
+/* 进入 */
+/* 开始动画前 */
+.card-enter, .card-appear {
+  opacity: 0;
+  transform: scale(0.6); /* scale 大小 */
+}
+
+/* 执行动画时 */
+.card-enter-active, .card-appear-active {
+  opacity: 1;
+  transition: all 300ms ; /* 执行动画(给谁执行可选择属性名(opacity...) 或者 all)  */
+  transform: scale(1);
+}
+
+/* 结束动画后 */
+.card-enter-done, .card-appear-done {
+
+}
+
+/* 退出 */
+/* 开始动画前 */
+.card-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 执行动画时 */
+.card-exit-active {
+  opacity: 0;
+  transition: all 300ms ; /* 执行动画(给谁执行) */
+  transform: scale(0.6);
+}
+
+/* 结束动画后 */
+.card-exit-done {
+  opacity: 0;
+}

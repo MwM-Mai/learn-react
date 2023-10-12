@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <!-- 1. 引入依赖 -->
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- 2. 编写 react 代码 -->
+
+    <script type="text/babel">
+      function getSizeImage(imgUrl, size) {
+        return imgUrl + `?param=${size}x${size}`;
+      }
+
+      // jsx 语法
+      const element = <h2>Hello Wrold</h2>;
+
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+
+          this.state = {
+            title: "标题",
+            image:
+              "http://p1.music.126.net/0a56FLdyySKVC6g15DL-RQ==/109951164266089265.jpg",
+            link: "http://www.baidu.com",
+            active: true,
+          };
+        }
+
+        render() {
+          return (
+            <div>
+              {/* 1. 绑定普通属性 */}
+              <h2 title={this.state.title}>Hello Wrold</h2>
+              <img src={getSizeImage(this.state.image, 140)} alt="" />
+              <a href={this.state.link} target="_blank">
+                百度一下
+              </a>
+
+              {/* 2. 绑定class 和label 标签的 for 属性 */}
+              <div className="box title">我是div元素</div>
+              <div
+                className={"box title " + (this.state.active ? "active" : "")}
+              >
+                我也是div元素
+              </div>
+              <label htmlFor=""></label>
+
+              {/* 3. 绑定style */}
+              <div style={{ color: "red", fontSize: "20px" }}>
+                我是div, 绑定style属性
+              </div>
+            </div>
+          );
+        }
+
+        getFullName() {
+          return firstName + lastName;
+        }
+      }
+
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+  </body>
+</html>
